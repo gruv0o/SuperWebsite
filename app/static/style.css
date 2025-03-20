@@ -2,9 +2,11 @@
 :root {
     --background-color: #000;
     --foreground-color: #fff;
-    --primary-color: #ea9b09;
+    --primary-color: #3e9e1a;
     --error-color: #ff4141;
     --success-color: #3a9e36;
+    --button-primary-color: #da9d0b;
+    --button-primary-hover: #d28614;
     --secondary-color: #1a1a1a;
     --border-color: rgba(255, 255, 255, 0.1);
     --hover-bg-color: rgba(255, 255, 255, 0.1);
@@ -72,7 +74,7 @@ nav ul li a:hover {
 }
 /* Contenu principal */
 .content {
-    width: 35%;
+    width: 30%;
     max-width: 700px;
     margin: 2rem auto;
     padding: 2rem;
@@ -83,6 +85,7 @@ nav ul li a:hover {
 .logged {
     margin-left: auto;
     margin-right: 25px;
+    font-weight: bold;
 }
 /* Flash Messages (Toasters) */
 .flash-container {
@@ -152,20 +155,21 @@ form input {
 }
 
 form input[type="submit"] {
-    background: var(--primary-color);
+    background: var(--button-primary-color);
     border: none;
     cursor: pointer;
     font-weight: bold;
+    margin-top: 20px;
     transition: background 0.3s ease;
 }
 
 form input[type="submit"]:hover {
-    background: #434343;
+    background: var(--button-primary-hover);
 }
 
 /* Liens */
 a {
-    color: var(--primary-color);
+    color: var(--foreground-color);
     text-decoration: none;
 }
 

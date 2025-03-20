@@ -4,12 +4,13 @@
 <nav>
     <h1><a class="title" href="{{ url_for('index') }}">SuperWebsite</a></h1>
     {%  if g.user %}
-    <h3 class="logged">Logged as {{ g.user['username'] }}</h3>
+    <a class="logged">Logged as {{ g.user['username'] }}</a>
     {% endif %}
   <ul>
     <li><a href="{{ url_for('index') }}">Home</a></li>
     {% if g.user %}
-      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+        <li><a href="{{ url_for('index') }}">Dashboard</a>
+        <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
     {% else %}
       <li><a href="{{ url_for('auth.register') }}">Register</a>
       <li><a href="{{ url_for('auth.login') }}">Log In</a>
