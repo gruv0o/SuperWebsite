@@ -2,9 +2,9 @@
 <title>{% block title %}{% endblock %} - Flaskr</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
-  <h1>SuperWebsite</h1>
+    <h1><a class="title" href="{{ url_for('index') }}">SuperWebsite</a></h1>
     {%  if g.user %}
-    <h3>Logged as {{ g.user['username'] }}</h3>
+    <h3 class="logged">Logged as {{ g.user['username'] }}</h3>
     {% endif %}
   <ul>
     <li><a href="{{ url_for('index') }}">Home</a></li>
@@ -20,8 +20,12 @@
   <header>
     {% block header %}{% endblock %}
   </header>
-  {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
-  {% endfor %}
-  {% block content %}{% endblock %}
+{% block content %}{% endblock %}
 </section>
+<footer>
+<div class="toast-container">
+  {% for category,message in get_flashed_messages(with_categories=True) %}
+    <div class="flash {{ category }}">{{ message }}</div>
+  {% endfor %}
+</div>
+</footer>

@@ -40,9 +40,10 @@ def register():
             except db.IntegrityError:
                 error = f'Username {username} already in use.'
             else:
+                flash('Registered successfully.', 'success')
                 return redirect(url_for('auth.login'))
 
-        flash(error)
+        flash(error,'error')
     return render_template('auth/register.html')
 
 @bp.route('/login', methods=['GET', 'POST'])
@@ -61,9 +62,10 @@ def login():
         if error is None:
             session.clear()
             session['user_id'] = user['id']
+            flash('Logged in successfully.', 'success')
             return redirect(url_for('index'))
 
-        flash(error)
+        flash(error, 'error')
     return render_template('auth/login.html')
 
 @bp.before_app_request

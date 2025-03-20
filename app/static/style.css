@@ -1,0 +1,186 @@
+/* Variables globales */
+:root {
+    --background-color: #000;
+    --foreground-color: #fff;
+    --primary-color: #ea9b09;
+    --error-color: #ff4141;
+    --success-color: #3a9e36;
+    --secondary-color: #1a1a1a;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --hover-bg-color: rgba(255, 255, 255, 0.1);
+    --font-family: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: var(--font-family), monospace;
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Navigation */
+nav {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: var(--secondary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: var(--foreground-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: var(--hover-bg-color);
+    border-radius: 5px;
+}
+.title
+{
+    color: var(--foreground-color);
+}
+/* Contenu principal */
+.content {
+    width: 35%;
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+.logged {
+    margin-left: auto;
+    margin-right: 25px;
+}
+/* Flash Messages (Toasters) */
+.flash-container {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-100%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 80%;
+    max-width: 400px;
+}
+
+/* Apparition & disparition automatique */
+@keyframes slide-up-fade {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    10% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    90% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
+.flash {
+    background: var(--error-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    animation: slide-up-fade 5s ease-in-out forwards;
+}
+
+.flash.success {
+    background: var(--success-color);
+    color: white;
+}
+/* Formulaires */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form label {
+    font-weight: 500;
+}
+
+form input {
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background: var(--background-color);
+    color: var(--foreground-color);
+    font-size: 1rem;
+}
+
+form input[type="submit"] {
+    background: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background: #434343;
+}
+
+/* Liens */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
