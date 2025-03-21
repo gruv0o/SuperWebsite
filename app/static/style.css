@@ -29,6 +29,7 @@ html, body {
     align-items: center;
     min-height: 100vh;
     width: 100%;
+    min-width: 800px;
 }
 
 /* Navigation */
@@ -87,18 +88,23 @@ nav ul li a:hover {
     margin-right: 25px;
     font-weight: bold;
 }
+
+footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
 /* Flash Messages (Toasters) */
 .flash-container {
     position: fixed;
-    bottom: 1rem;
     left: 50%;
     transform: translateX(-100%);
-    z-index: 1000;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     width: 80%;
     max-width: 400px;
+    margin-bottom: 10%;
 }
 
 /* Apparition & disparition automatique */

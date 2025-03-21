@@ -8,11 +8,15 @@ CREATE TABLE user (
   email TEXT UNIQUE NOT NULL
 );
 
-CREATE TABLE post (
+CREATE TABLE vault (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  author_id INTEGER NOT NULL,
+  user_id INTEGER NOT NULL,
   created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   title TEXT NOT NULL,
   body TEXT NOT NULL,
-  FOREIGN KEY (author_id) REFERENCES user (id)
+  password_hash TEXT NOT NULL,
+  salt TEXT NOT NULL,
+  private_key TEXT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user (id)
+
 );
