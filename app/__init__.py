@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template
 from app.auth import login_required
+from datetime import timedelta
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -39,5 +40,7 @@ def create_app(test_config=None):
 
     from . import auth
     app.register_blueprint(auth.bp)
+
+    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)
 
     return app

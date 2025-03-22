@@ -61,6 +61,7 @@ def login():
 
         if error is None:
             session.clear()
+            session.permanent = True
             session['user_id'] = user['id']
             flash('Logged in successfully.', 'success')
             return redirect(url_for('index'))
